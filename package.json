@@ -1,0 +1,34 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "devDependencies": {
+    "babel-plugin-module-resolver": "^2.4.0",
+    "orionsoft-react-scripts": "^0.8.7"
+  },
+  "dependencies": {
+    "apollo-client": "^0.6.0",
+    "autobind": "^1.0.3",
+    "dgram": "^1.0.1",
+    "dns": "^0.2.2",
+    "fetch": "^1.1.0",
+    "http": "0.0.0",
+    "material-ui": "^0.16.7",
+    "meteor-apollo-accounts": "^2.0.1",
+    "react": "^15.4.2",
+    "react-apollo": "^0.8.1",
+    "react-dom": "^15.4.2",
+    "react-router": "^3.0.1",
+    "react-tap-event-plugin": "^2.0.1",
+    "request": "^2.79.0",
+    "simple-react-form": "^1.8.0",
+    "simple-react-form-material-ui": "^1.7.5"
+  },
+  "scripts": {
+    "start": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js start",
+    "start:watch": "watch npm\\ start ./node_modules/orionsoft-react-scripts",
+    "build": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js build",
+    "test": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js test --env=jsdom",
+    "eject": "./node_modules/orionsoft-react-scripts/bin/react-scripts.js eject"
+  }
+}
