@@ -5,7 +5,8 @@ import {GridList, GridTile} from 'material-ui/GridList'
 export default class PixabayList extends React.Component {
 
   static propTypes = {
-    list: React.PropTypes.object
+    list: React.PropTypes.object,
+    error: React.PropTypes.object
   }
   renderImages () {
     return this.props.list.hits.map(element => {
@@ -20,8 +21,14 @@ export default class PixabayList extends React.Component {
     })
   }
   renderNotFound () {
-    return <h1> no images found</h1>
+    console.log(this.props)
+    if (this.props.list.error.error) {
+      return <h1>error: {this.props.list.error.error.message}</h1>
+    } else {
+      return <h1> no images found</h1>
+    }
   }
+
   renderTiles () {
     return this.props.list.hits.map((tile) => (
       <a href={tile.pageURL} key={tile.previewURL}>
@@ -38,14 +45,21 @@ export default class PixabayList extends React.Component {
     if (this.props.list.loading) {
       return <h1>Loading</h1>
     }
-    return (
-      <div className='row col-xs-12 center-xs'>
-        {/* this.props.list.hits.length > 0 ? this.renderImages() : this.renderNotFound() */}
-        <GridList cols={3} >
-          {this.props.list.hits.length > 0 ? this.renderTiles() : this.renderNotFound() }
-        </GridList>
-      </div>
-    )
+
+    if (this.props.list.hits.length > 0) {
+      return (
+        <div className='row col-xs-12 center-xs'>
+          {/* this.renderImages() */}
+          <GridList cols={3} >
+            {this.renderTiles()}
+          </GridList>
+        </div>
+      )
+    } else {
+      return (<div className='row col-xs-12 '>
+        {this.renderNotFound() }
+      </div>)
+    }
   }
 
 }

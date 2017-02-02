@@ -12,16 +12,21 @@ export default class Home extends React.Component {
   }
   constructor (props) {
     super(props)
-    this.state = {hits: {length: 0}}
+    this.state = {hits: [], error: {}}
   }
   @autobind
   onSearch (args) {
-    console.log(args)
+    // console.log(args)
     this.setState({...this.state, loading: true})
-    request(`https://pixabay.com/api/?key=4302461-d0359356a2e08d69a2bedaa8f&q=${args.termino}&image_type=photo`, (error, response, body) => {
-      console.log(response, body, error)
-      console.log('body ' + body)
-      this.setState({...JSON.parse(body), loading: false})
+    request(`https://pixabay.com/api/?key=4302461-d0359356a2e08d69a2bedaa8f&q=${args.term}&image_type=photo&per_page`, (error, response, body) => {
+      if (error) {
+        console.log(error, error)
+        return this.setState({ hits: [], error: {error}, loading: false })
+      } else {
+        // console.log(response, body, error)
+        // console.log('body ' + body)
+        this.setState({...JSON.parse(body), loading: false, error: {}})
+      }
     })
   }
   render () {
