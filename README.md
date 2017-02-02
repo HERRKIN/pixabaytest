@@ -1,5 +1,6 @@
-# Create React App [![Build Status](https://travis-ci.org/facebookincubator/create-react-app.svg?branch=master)](https://travis-ci.org/facebookincubator/create-react-app)
+# Test app for conexioningenieros.com
 
-Create React apps with no build configuration.
+Para correr la app simplemente npm install luego npm start
+hay 2 versiones de la lista de imagenes, en el componente PixabayList, si quieren ver como funciona una u otra simplemente descomentar la que esta comentada en el render y comentar la otra. 
 
-Internal use only
+Espero guste. 
