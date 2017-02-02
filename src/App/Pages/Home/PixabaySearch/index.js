@@ -10,13 +10,20 @@ export default class PixabaySearch extends React.Component {
   static propTypes = {
     onSearch: React.PropTypes.func
   }
+  constructor (props) {
+    super(props)
+    this.state = {term: ''}
+  }
   @autobind
   submit () {
-    this.props.onSearch(this.state)
+    if (this.state.term !== '') {
+      // console.log('state', this.state)
+      this.props.onSearch(this.state)
+    }
   }
   render () {
     return (
-      <div className='row col-xs-12'>
+      <div className='row col-xs-12 middle-xs'>
         <div className='col-xs-4'>
           <Form state={this.state} onChange={changes => {
             this.setState(changes)
@@ -24,13 +31,13 @@ export default class PixabaySearch extends React.Component {
             this.submit()
           }}>
             <Field
-              fieldName='termino'
+              fieldName='term'
               type={Text}
-              label='busca una imagen' />
+              label='Search for an image' />
           </Form>
         </div>
-        <div>
-          <RaisedButton label='buscar' onTouchTap={this.submit} />
+        <div >
+          <RaisedButton label='search' primary onTouchTap={this.submit} />
         </div>
       </div>
     )
