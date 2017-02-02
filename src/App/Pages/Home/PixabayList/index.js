@@ -22,8 +22,8 @@ export default class PixabayList extends React.Component {
   }
   renderNotFound () {
     console.log(this.props)
-    if (this.props.list.error.error) {
-      return <h1>error: {this.props.list.error.error.message}</h1>
+    if (this.props.list.error.message) {
+      return <h1>error: {this.props.list.error.message}</h1>
     } else {
       return <h1> no images found</h1>
     }
@@ -41,7 +41,7 @@ export default class PixabayList extends React.Component {
       </a>))
   }
   render () {
-    console.log('inlist ', this.props.list)
+    // console.log('inlist ', this.props.list)
     if (this.props.list.loading) {
       return <h1>Loading</h1>
     }
